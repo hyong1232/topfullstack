@@ -4,6 +4,7 @@ import { AdminModule } from './admin.module';
 
 async function bootstrap() {
     const app = await NestFactory.create(AdminModule);
+    app.enableCors();
     console.log('server is start in port 3000');
     const config = new DocumentBuilder()
         .setTitle('admin 文档')

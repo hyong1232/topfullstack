@@ -10,9 +10,19 @@ const routes: RouteConfig[] = [
     component: () => import('@/views/Home.vue'),
     children: [
         {
-            path: '/course/list',
+            path: '/curse/list',
             component: () => import('@/components/commonList.vue'),
-        }
+        },
+        {
+            path: '/curse/edit/:id',
+            component: () => import('@/components/commonEdit.vue'),
+            props: true
+        },
+        {
+            path: '/curse/create',
+            component: () => import('@/components/commonEdit.vue'),
+            props: true
+        },
     ]
   },
 //   {

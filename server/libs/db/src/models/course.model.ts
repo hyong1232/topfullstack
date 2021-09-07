@@ -16,7 +16,6 @@ export class Course {
     @prop()
     cover: string;
 
-    @ApiProperty({description: '课程包含课时', example: '[url1,url2,...]'})
     @Prop({
         ref: 'Episode'
     })
