@@ -8,7 +8,7 @@ import { InjectModel } from 'nestjs-typegoose';
     model: Course
 })
 @ApiTags('课程')
-@Controller('curses')
+@Controller('courses')
 export class CursesController {
     constructor(@InjectModel(Course) private readonly model){}
 }
