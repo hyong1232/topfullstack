@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
+import VueRouter, { RouteConfig } from 'vue-router';
+import { routerLoadHelper } from '@/utils/routerHelper';
 
 Vue.use(VueRouter)
 
@@ -10,18 +11,19 @@ const routes: RouteConfig[] = [
     component: () => import('@/views/Home.vue'),
     children: [
         {
-            path: '/curse/list',
-            component: () => import('@/components/commonList.vue'),
+            path: '/course/list',
+            component: resolve => require(['@/views/course/list.vue'], resolve),
         },
         {
-            path: '/curse/edit/:id',
-            component: () => import('@/components/commonEdit.vue'),
+            path: '/course/edit/:id',
+            component:() => routerLoadHelper('@/views/course/edit.vue'),
             props: true
         },
         {
-            path: '/curse/create',
-            component: () => import('@/components/commonEdit.vue'),
-            props: true
+            path: '/course/create',
+            component: () => ({
+              component: import('@/views/course/edit.vue')
+            }),
         },
     ]
   },
